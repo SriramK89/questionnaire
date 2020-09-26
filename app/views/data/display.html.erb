@@ -1,0 +1,54 @@
+<%= link_to 'Import CSV', root_path, class: "btn btn-primary", id: :importCSV %>
+
+<table id='questionsTable' class='table table-responsive' width='100%'>
+  <thead>
+    <tr>
+      <th>Pri</th>
+      <th>Question</th>
+      <th>Teaming Stages</th>
+      <th>Appears (Day)</th>
+      <th>Frequency</th>
+      <th>Type</th>
+      <th>Role</th>
+      <th>Required?</th>
+      <th>Conditions</th>
+      <th>Mapping</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% questions.each do |question| %>
+      <tr>
+        <td>
+          <%= question.pri %>
+        </td>
+        <td>
+          <%= question.content %>
+        </td>
+        <td>
+          <%= question.teaming_stages %>
+        </td>
+        <td>
+          <%= question.appears %>
+        </td>
+        <td>
+          <%= question.frequency %>
+        </td>
+        <td>
+          <%= question.question_type %>
+        </td>
+        <td>
+          <%= question.role.name %>
+        </td>
+        <td>
+          <%= question.is_required ? 'Yes' : 'No' %>
+        </td>
+        <td>
+          <%= question.conditions %>
+        </td>
+        <td>
+          <%= question.mapping.name %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

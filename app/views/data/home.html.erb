@@ -1,0 +1,17 @@
+<%= link_to 'Display Data', data_display_path, class: "btn btn-primary", id: :displayData %>
+<%= form_with(url: {action: :upload_csv, method: :post}, multipart: true, remote: true, id: :uploadCSVForm) do %>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="uploadCSVAddOn">Upload</span>
+    </div>
+
+    <div class="custom-file">
+      <%= file_field_tag 'upload_csv_file', class: "custom-file-input", "aria-describedby" => "uploadCSVAddOn", accept: '.csv', "data-url" => data_upload_csv_path %>
+      <label class="custom-file-label" for="fileInput">Choose a CSV file...</label>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <%= submit_tag 'Upload', class: "btn btn-success", id: :uploadCSVSubmit, disabled: true %>
+  </div>
+<% end %>
